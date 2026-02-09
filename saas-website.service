@@ -1,0 +1,14 @@
+[Unit]
+Description=SaaS Website Service
+After=network.target
+
+[Service]
+Type=simple
+User=ec2-user
+WorkingDirectory=/home/ec2-user/.openclaw/workspace
+ExecStart=/usr/bin/node /home/ec2-user/.openclaw/workspace/server.js
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
