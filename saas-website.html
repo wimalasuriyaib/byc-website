@@ -632,6 +632,44 @@
             color: var(--text-secondary);
             margin: 20px 0;
             font-style: italic;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            animation: shimmer 2s infinite;
+        }
+        
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        
+        .image-placeholder.hero-img {
+            height: 300px;
+            background: linear-gradient(135deg, var(--primary), var(--accent), #ec4899);
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        
+        .image-placeholder.service-img {
+            height: 180px;
+            background: linear-gradient(135deg, var(--card), var(--primary));
+            color: var(--text);
+        }
+        
+        .image-placeholder.testimonial-img {
+            height: 150px;
+            background: linear-gradient(135deg, var(--accent), #10b981);
+            color: white;
         }
     </style>
 </head>
@@ -663,8 +701,12 @@
         <div class="container">
             <h1>Stop Guessing. Start Performing.</h1>
             <p>Premium career coaching for 20-30 year olds. Get mock interviews, CV re-engineering, and career calibration to land your dream job.</p>
-            <div class="image-placeholder" style="background: linear-gradient(45deg, var(--primary), var(--accent)); color: white; font-weight: bold;">
-                Career Success Visualization Placeholder
+            <div class="image-placeholder hero-img">
+                <div style="text-align: center; z-index: 1;">
+                    <div style="font-size: 24px; margin-bottom: 10px;">🎯 Career Success</div>
+                    <div style="font-size: 14px; opacity: 0.9;">Young professional achieving career goals</div>
+                    <div style="font-size: 12px; margin-top: 15px; opacity: 0.7;">[Replace with professional image]</div>
+                </div>
             </div>
             <div class="hero-buttons">
                 <a href="#pricing" class="cta-button">Book Your Session</a>
@@ -682,24 +724,33 @@
                     <div class="feature-icon">🎯</div>
                     <h3>Career Calibration Gap</h3>
                     <p>Most candidates don't know how to position themselves for their target roles. We help you align your skills with market demands.</p>
-                    <div class="image-placeholder" style="background: linear-gradient(45deg, var(--primary), #7c3aed);">
-                        Career Alignment Chart
+                    <div class="image-placeholder service-img">
+                        <div style="text-align: center; z-index: 1;">
+                            <div style="font-size: 18px; margin-bottom: 5px;">📊 Career Alignment</div>
+                            <div style="font-size: 12px; opacity: 0.8;">Skills vs Market Demand Analysis</div>
+                        </div>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📝</div>
                     <h3>CV Re-engineering</h3>
                     <p>Your CV gets 7 seconds of attention. We transform it into an achievement-focused document that stands out to recruiters.</p>
-                    <div class="image-placeholder" style="background: linear-gradient(45deg, var(--accent), #0891b2);">
-                        Before/After CV Examples
+                    <div class="image-placeholder service-img">
+                        <div style="text-align: center; z-index: 1;">
+                            <div style="font-size: 18px; margin-bottom: 5px;">📄 CV Transformation</div>
+                            <div style="font-size: 12px; opacity: 0.8;">Before/After Comparison</div>
+                        </div>
                     </div>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎤</div>
                     <h3>Mock Interview Mastery</h3>
                     <p>Practice with real interview scenarios and get feedback from industry experts. Build confidence and nail your interviews.</p>
-                    <div class="image-placeholder" style="background: linear-gradient(45deg, #f59e0b, #d97706);">
-                        Interview Practice Session
+                    <div class="image-placeholder service-img">
+                        <div style="text-align: center; z-index: 1;">
+                            <div style="font-size: 18px; margin-bottom: 5px;">💼 Mock Interview</div>
+                            <div style="font-size: 12px; opacity: 0.8;">Practice & Feedback Session</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -764,24 +815,33 @@
                     <div class="feature-icon">🎤</div>
                     <h3>Mock Interviews</h3>
                     <p>Practice with real interview scenarios tailored to your target industry. Get feedback on communication, body language, and technical responses.</p>
-                    <div class="image-placeholder" style="background: linear-gradient(45deg, var(--primary), #7c3aed); height: 120px;">
-                        Industry-specific Interview Practice
+                    <div class="image-placeholder service-img" style="height: 120px;">
+                        <div style="text-align: center; z-index: 1;">
+                            <div style="font-size: 16px; margin-bottom: 5px;">🎤 Mock Interview</div>
+                            <div style="font-size: 11px; opacity: 0.8;">Industry-specific Practice</div>
+                        </div>
                     </div>
                 </div>
                 <div class="feature-card" style="border-color: var(--accent);">
                     <div class="feature-icon">📄</div>
                     <h3>CV Re-engineering</h3>
                     <p>Transform your CV from a duty list to an achievement showcase. We highlight your impact using ATS-friendly formats that get noticed.</p>
-                    <div class="image-placeholder" style="background: linear-gradient(45deg, var(--accent), #0891b2); height: 120px;">
-                        ATS-Optimized CV Templates
+                    <div class="image-placeholder service-img" style="height: 120px;">
+                        <div style="text-align: center; z-index: 1;">
+                            <div style="font-size: 16px; margin-bottom: 5px;">📄 CV Templates</div>
+                            <div style="font-size: 11px; opacity: 0.8;">ATS-Optimized Formats</div>
+                        </div>
                     </div>
                 </div>
                 <div class="feature-card" style="border-color: #f59e0b;">
                     <div class="feature-icon">🧭</div>
                     <h3>Career Calibration</h3>
                     <p>Align your skills with market opportunities. We help you identify growth paths, skill gaps, and strategic moves for career advancement.</p>
-                    <div class="image-placeholder" style="background: linear-gradient(45deg, #f59e0b, #d97706); height: 120px;">
-                        Career Roadmap Planning
+                    <div class="image-placeholder service-img" style="height: 120px;">
+                        <div style="text-align: center; z-index: 1;">
+                            <div style="font-size: 16px; margin-bottom: 5px;">🧭 Career Roadmap</div>
+                            <div style="font-size: 11px; opacity: 0.8;">Strategic Planning</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -793,8 +853,12 @@
         <div class="container">
             <h2>Ready to Build Your Career?</h2>
             <p>Join ambitious professionals who transformed their careers with BYC.lk. Your dream job is one session away.</p>
-            <div class="image-placeholder" style="background: linear-gradient(45deg, var(--primary), var(--accent), #f59e0b); color: white; height: 150px;">
-                "BYC.lk helped me land a 40% salary increase!" - Former Client
+            <div class="image-placeholder testimonial-img">
+                <div style="text-align: center; z-index: 1; padding: 20px;">
+                    <div style="font-size: 20px; margin-bottom: 10px;">💬 Client Success Story</div>
+                    <div style="font-size: 16px; font-style: italic; margin-bottom: 10px;">"BYC.lk helped me land a 40% salary increase!"</div>
+                    <div style="font-size: 14px; opacity: 0.9;">- Software Engineer, Colombo</div>
+                </div>
             </div>
             <a href="https://wa.me/94719359004?text=Hi%20BYC.lk!%20I%20want%20to%20book%20a%20career%20consultation." class="cta-button" style="padding: 15px 40px; font-size: 18px;" target="_blank">📱 WhatsApp Us Now</a>
         </div>
