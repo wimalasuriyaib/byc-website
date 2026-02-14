@@ -1,0 +1,44 @@
+# Datadog related files
+create-dashboard.py
+create-datadog-synthetic-fixed.py
+create-datadog-synthetic-us5.py
+create-html-command.json
+create-new-espncricinfo-test.py
+create-simple-dashboard.py
+datadog-agent-final-status.md
+datadog-agent-installation-summary.md
+datadog-install-script.sh
+datadog-manual-setup.md
+datadog-status-summary.md
+datadog-synthetic-test.py
+ec2-deployment-summary.md
+install-datadog-simple.sh
+test-datadog-direct.py
+test-datadog-us5.py
+update-datadog-simple.py
+update-datadog-test.py
+
+# Secure keys notice
+SECURE_KEYS_NOTICE.md
+
+# Temporary directories
+tmp/
+
+# Memory files (except for project-related memory)
+memory/2026-02-11-datadog-agent.md
+memory/2026-02-11.md
+
+# System files
+*.service
+*.log
+*.pid
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS files
+.DS_Store
+Thumbs.db
