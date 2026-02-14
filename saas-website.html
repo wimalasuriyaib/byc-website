@@ -672,6 +672,55 @@
             background: linear-gradient(135deg, var(--accent), #10b981);
             color: white;
         }
+        
+        /* FAQ Section Responsive Styles */
+        @media (max-width: 768px) {
+            .faq-question {
+                font-size: 16px !important;
+                padding: 12px 0 !important;
+            }
+            
+            .faq-answer {
+                font-size: 15px !important;
+                line-height: 1.6 !important;
+            }
+            
+            .faq-item {
+                padding: 15px 0 !important;
+            }
+            
+            .faq-icon {
+                font-size: 20px !important;
+                min-width: 24px;
+                text-align: center;
+            }
+            
+            /* Make FAQ buttons more tappable on mobile */
+            .faq-question:active {
+                background-color: rgba(139, 92, 246, 0.1) !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .faq-question {
+                font-size: 15px !important;
+                padding: 10px 0 !important;
+            }
+            
+            .faq-answer {
+                font-size: 14px !important;
+            }
+        }
+        
+        /* FAQ hover effects for desktop */
+        @media (hover: hover) {
+            .faq-question:hover {
+                background-color: rgba(139, 92, 246, 0.05);
+                border-radius: 8px;
+                padding-left: 10px !important;
+                padding-right: 10px !important;
+            }
+        }
     </style>
 </head>
 <body>
@@ -690,6 +739,7 @@
                     <a href="#why">Why BYC?</a>
                     <a href="#services">Services</a>
                     <a href="#pricing">Pricing</a>
+                    <a href="#faq">FAQ</a>
                     <a href="#about">About</a>
                     <a href="#contact">Contact</a>
                 </div>
@@ -750,27 +800,27 @@
                     <h3>The Catalyst</h3>
                     <div class="price">LKR 2,500</div>
                     <ul class="pricing-features">
-                        <li>1 x Diagnostic Mock Interview (15 min)</li>
-                        <li>Live Verbal Feedback & Performance Review</li>
-                        <li>Structural CV Review (PDF Comments)</li>
-                        <li>Standard WhatsApp Support</li>
-                        <li>—</li>
+                        <li>One <strong>20-Minute</strong> Rapid Session</li>
+                        <li><strong>15-Min</strong> Mock Interview</li>
+                        <li><strong>5-Min</strong> Live Performance Feedback</li>
+                        <li>Verbal CV Audit (During Call)</li>
+                        <li>Note: Completed within the single session</li>
                     </ul>
                     <a href="https://wa.me/94719359004?text=I%20want%20to%20book%20The%20Catalyst%20Plan" class="cta-button" target="_blank">📱 Book Now</a>
                 </div>
                 <div class="pricing-card featured">
                     <div class="badge">Most Popular</div>
                     <div class="plan-focus" style="color: var(--primary); font-size: 14px; font-weight: 600; margin-bottom: 10px; text-transform: uppercase;">
-                        Focus: Complete Document & Performance Polish
+                        Focus: Document & Performance Uplift
                     </div>
                     <h3>The Accelerator</h3>
                     <div class="price">LKR 5,000</div>
                     <ul class="pricing-features">
-                        <li>1 x Extended Mock Interview (30 min)</li>
-                        <li>Detailed Written Feedback & Performance Report</li>
-                        <li>Full CV Re-engineering (ATS-Optimized)</li>
-                        <li>LinkedIn Profile Optimization Report</li>
-                        <li>Priority WhatsApp Support</li>
+                        <li>One <strong>25-Minute</strong> Integrated Session</li>
+                        <li><strong>15-Min</strong> Mock Interview + <strong>5-Min</strong> Feedback</li>
+                        <li><strong>5-Min</strong> Live Career Coaching</li>
+                        <li>Full CV Re-engineering (Shared after call)</li>
+                        <li>LinkedIn Profile Review Report</li>
                     </ul>
                     <a href="https://wa.me/94719359004?text=I%20want%20to%20book%20The%20Accelerator%20Plan" class="cta-button" target="_blank">📱 Book Now</a>
                 </div>
@@ -781,18 +831,19 @@
                     <h3>The Pinnacle</h3>
                     <div class="price">LKR 9,500</div>
                     <ul class="pricing-features">
-                        <li>2 x Deep-Dive Mock Interviews (30 mins each)</li>
-                        <li>Calibration & Direct Mentoring Included</li>
-                        <li>Detailed Written Feedback & Performance Report</li>
-                        <li>Full CV Re-engineering (ATS-Optimized)</li>
-                        <li>LinkedIn Profile Optimization Report</li>
-                        <li>The BYC Executive Career Roadmap (Custom Strategy PDF)</li>
-                        <li>Priority Scheduling for All Sessions</li>
-                        <li>Priority WhatsApp Support</li>
+                        <li>One <strong>40-Minute</strong> Deep-Dive Session</li>
+                        <li><strong>20-Min</strong> Executive Interview + <strong>5-Min</strong> Feedback</li>
+                        <li><strong>5-Min</strong> Coaching + <strong>10-Min</strong> Mentorship</li>
+                        <li>Full CV Re-engineering (Shared after call)</li>
+                        <li>LinkedIn Optimization & Roadmap Reports</li>
+                        <li>Short-to-Medium Term Career Boost Report</li>
                     </ul>
                     <a href="https://wa.me/94719359004?text=I%20want%20to%20book%20The%20Pinnacle%20Plan" class="cta-button" target="_blank">📱 Book Now</a>
                 </div>
             </div>
+            <p style="text-align: center; margin-top: 40px; font-size: 14px; color: var(--text-secondary); max-width: 800px; margin-left: auto; margin-right: auto;">
+                All sessions are conducted live by the BYC Council. Discovery via our online forum is required prior to the session start.
+            </p>
         </div>
     </section>
 
@@ -819,6 +870,126 @@
                     <p>Align your skills with market opportunities. We help you identify growth paths, skill gaps, and strategic moves for career advancement.</p>
                     <img src="https://raw.githubusercontent.com/wimalasuriyaib/byc-website/refs/heads/master/images/service_Career%20Calibration.png" alt="Career Calibration - BYC.lk Premium Service" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-top: 15px;">
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq" style="padding: 100px 0; background: var(--card); transition: background-color 0.3s;">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="faq-container" style="max-width: 800px; margin: 60px auto 0;">
+                
+                <!-- FAQ Item 1 -->
+                <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 20px 0;">
+                    <button class="faq-question" style="width: 100%; text-align: left; background: none; border: none; color: var(--text); font-size: 18px; font-weight: 600; padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <span>I have the qualifications; why do I need BYC?</span>
+                        <span class="faq-icon" style="font-size: 24px; transition: transform 0.3s;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding-top: 15px; color: var(--text-secondary); line-height: 1.7;">
+                        Being "qualified" gets you the interview, but being "calibrated" gets you the job. Most top-tier candidates fail because they can't translate their technical skills into the "Executive Language" hiring managers look for. We provide that final bridge.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 20px 0;">
+                    <button class="faq-question" style="width: 100%; text-align: left; background: none; border: none; color: var(--text); font-size: 18px; font-weight: 600; padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Is this just another CV writing service?</span>
+                        <span class="faq-icon" style="font-size: 24px; transition: transform 0.3s;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding-top: 15px; color: var(--text-secondary); line-height: 1.7;">
+                        No. A CV writer just fixes grammar. The BYC Council re-engineers your story. We look at your career through the eyes of a Hiring Director to highlight the specific achievements that trigger a "Yes" from recruiters.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 20px 0;">
+                    <button class="faq-question" style="width: 100%; text-align: left; background: none; border: none; color: var(--text); font-size: 18px; font-weight: 600; padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <span>What happens during the Mock Interview?</span>
+                        <span class="faq-icon" style="font-size: 24px; transition: transform 0.3s;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding-top: 15px; color: var(--text-secondary); line-height: 1.7;">
+                        It is a realistic simulation tailored to your experience level. We focus on the areas where you struggle most—whether it's mastering the "Standard" introductory questions or navigating complex, high-pressure behavioral scenarios.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 20px 0;">
+                    <button class="faq-question" style="width: 100%; text-align: left; background: none; border: none; color: var(--text); font-size: 18px; font-weight: 600; padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <span>How does the "Live Feedback" work?</span>
+                        <span class="faq-icon" style="font-size: 24px; transition: transform 0.3s;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding-top: 15px; color: var(--text-secondary); line-height: 1.7;">
+                        Immediately after your interview, we "break character" and give you an honest breakdown. We tell you exactly how you sounded, where your confidence dipped, and how to fix your answers on the spot. You walk away with a clear fix.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 20px 0;">
+                    <button class="faq-question" style="width: 100%; text-align: left; background: none; border: none; color: var(--text); font-size: 18px; font-weight: 600; padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <span>What is the "Council Online Forum"?</span>
+                        <span class="faq-icon" style="font-size: 24px; transition: transform 0.3s;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding-top: 15px; color: var(--text-secondary); line-height: 1.7;">
+                        Once you book, you'll gain access to our Discovery Forum. This is where you share your current CV and target job role. This allows our mentors to study your profile before the call, maximizing every minute of your session.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 6 -->
+                <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 20px 0;">
+                    <button class="faq-question" style="width: 100%; text-align: left; background: none; border: none; color: var(--text); font-size: 18px; font-weight: 600; padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Do I really get a new CV in the Accelerator & Pinnacle plans?</span>
+                        <span class="faq-icon" style="font-size: 24px; transition: transform 0.3s;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding-top: 15px; color: var(--text-secondary); line-height: 1.7;">
+                        Yes. We take your current CV and rebuild it using our proprietary, ATS-optimized framework. We focus on "Impact Metrics" that show companies how you save them time or make them money.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 7 -->
+                <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 20px 0;">
+                    <button class="faq-question" style="width: 100%; text-align: left; background: none; border: none; color: var(--text); font-size: 18px; font-weight: 600; padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Is my information kept private?</span>
+                        <span class="faq-icon" style="font-size: 24px; transition: transform 0.3s;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding-top: 15px; color: var(--text-secondary); line-height: 1.7;">
+                        Absolutely. Your professional journey is your own. Your data, your session, and your identity remain strictly confidential within the BYC Council.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 8 -->
+                <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 20px 0;">
+                    <button class="faq-question" style="width: 100%; text-align: left; background: none; border: none; color: var(--text); font-size: 18px; font-weight: 600; padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <span>Why do I "Buy a Coffee" to pay?</span>
+                        <span class="faq-icon" style="font-size: 24px; transition: transform 0.3s;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding-top: 15px; color: var(--text-secondary); line-height: 1.7;">
+                        We use the Buy Me a Coffee platform to keep our process simple and secure. It is a globally trusted platform that allows you to support our mentors' time using any local or international card.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 9 -->
+                <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 20px 0;">
+                    <button class="faq-question" style="width: 100%; text-align: left; background: none; border: none; color: var(--text); font-size: 18px; font-weight: 600; padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <span>How soon can I get my session?</span>
+                        <span class="faq-icon" style="font-size: 24px; transition: transform 0.3s;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding-top: 15px; color: var(--text-secondary); line-height: 1.7;">
+                        Typically, once you "Buy a Coffee" and complete the Discovery Forum, we schedule your session within 24 to 48 hours. We value your momentum.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 10 -->
+                <div class="faq-item" style="border-bottom: 1px solid var(--border-color); padding: 20px 0;">
+                    <button class="faq-question" style="width: 100%; text-align: left; background: none; border: none; color: var(--text); font-size: 18px; font-weight: 600; padding: 15px 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center;">
+                        <span>I have a "Dream Job" in mind—can you help me land it?</span>
+                        <span class="faq-icon" style="font-size: 24px; transition: transform 0.3s;">+</span>
+                    </button>
+                    <div class="faq-answer" style="display: none; padding-top: 15px; color: var(--text-secondary); line-height: 1.7;">
+                        That is exactly what BYC is built for. We don't just fix your documents; we package your profile. We give you the "Insider's Edge" that makes you the most logical and prepared choice for the hiring manager.
+                    </div>
+                </div>
+                
             </div>
         </div>
     </section>
@@ -921,6 +1092,51 @@
         window.addEventListener('resize', () => {
             const currentTheme = body.classList.contains('dark-mode') ? 'dark' : 'light';
             updateIcon(currentTheme);
+        });
+        
+        // FAQ Accordion functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const answer = this.nextElementSibling;
+                    const icon = this.querySelector('.faq-icon');
+                    
+                    // Toggle current answer
+                    if (answer.style.display === 'block') {
+                        answer.style.display = 'none';
+                        icon.textContent = '+';
+                        icon.style.transform = 'rotate(0deg)';
+                    } else {
+                        answer.style.display = 'block';
+                        icon.textContent = '−';
+                        icon.style.transform = 'rotate(180deg)';
+                    }
+                    
+                    // Optional: Close other open FAQs (for single open at a time)
+                    // faqQuestions.forEach(otherQuestion => {
+                    //     if (otherQuestion !== this) {
+                    //         const otherAnswer = otherQuestion.nextElementSibling;
+                    //         const otherIcon = otherQuestion.querySelector('.faq-icon');
+                    //         otherAnswer.style.display = 'none';
+                    //         otherIcon.textContent = '+';
+                    //         otherIcon.style.transform = 'rotate(0deg)';
+                    //     }
+                    // });
+                });
+            });
+            
+            // Mobile-friendly touch improvements
+            faqQuestions.forEach(question => {
+                question.addEventListener('touchstart', function(e) {
+                    this.style.backgroundColor = 'rgba(139, 92, 246, 0.1)';
+                });
+                
+                question.addEventListener('touchend', function(e) {
+                    this.style.backgroundColor = 'transparent';
+                });
+            });
         });
     </script>
 </body>
