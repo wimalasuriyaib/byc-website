@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 2000px;
+            font-family: Arial, sans-serif;
+        }
+        .content {
+            padding: 100px 20px;
+        }
+        .test-section {
+            height: 500px;
+            margin: 50px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <h1>Open the BYC website at <a href="http://localhost:3000" target="_blank">http://localhost:3000</a></h1>
+    <p>Test the following:</p>
+    <ol>
+        <li>Header should be sticky (fixed at top)</li>
+        <li>Header should have blur effect and shadow</li>
+        <li>Clicking BYC logo should scroll to hero section</li>
+        <li>On mobile (or resize browser to < 768px), back-to-top button should appear after scrolling 400px</li>
+        <li>Back-to-top button should scroll smoothly to top when clicked</li>
+        <li>Section title should say "The BYC Experts" not "The BYC Council"</li>
+        <li>Expert titles should be plural and role-based</li>
+        <li>FAQ link should be in footer</li>
+    </ol>
+    
+    <div class="content">
+        <h2>Test Content to Enable Scrolling</h2>
+        <div class="test-section">Section 1</div>
+        <div class="test-section">Section 2</div>
+        <div class="test-section">Section 3</div>
+        <div class="test-section">Section 4</div>
+    </div>
+</body>
+</html>

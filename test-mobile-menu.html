@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile Menu Test</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .test-container {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .test-section {
+            margin: 20px 0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+        .mobile-test {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .desktop-test {
+            background: #e0f0ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .instruction {
+            background: #fff3cd;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 4px solid #ffc107;
+        }
+        h3 {
+            color: #333;
+            margin-top: 0;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        li {
+            margin: 5px 0;
+        }
+        .status {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        .status.pass {
+            background: #d4edda;
+            color: #155724;
+        }
+        .status.fail {
+            background: #f8d7da;
+            color: #721c24;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>Mobile Menu Implementation Test</h1>
+        
+        <div class="instruction">
+            <h3>📱 Test Instructions:</h3>
+            <p>Open the BYC website at <a href="http://localhost:3000" target="_blank">http://localhost:3000</a> and test the following:</p>
+        </div>
+        
+        <div class="mobile-test">
+            <h3>📱 Mobile View (Resize browser to < 768px):</h3>
+            <ul>
+                <li><span class="status pass">TEST 1</span> Header should NOT be sticky/fixed (should scroll with content)</li>
+                <li><span class="status pass">TEST 2</span> Back-to-top button should appear after scrolling 300px down</li>
+                <li><span class="status pass">TEST 3</span> Button position: fixed, bottom: 20px, right: 20px</li>
+                <li><span class="status pass">TEST 4</span> Button design: Circle (~50px), Navy Blue background, Gold arrow ↑</li>
+                <li><span class="status pass">TEST 5</span> Clicking button should smoothly scroll to top</li>
+                <li><span class="status pass">TEST 6</span> Button should have high z-index (above all content)</li>
+            </ul>
+        </div>
+        
+        <div class="desktop-test">
+            <h3>🖥️ Desktop View (Resize browser to > 768px):</h3>
+            <ul>
+                <li><span class="status pass">TEST 7</span> Header SHOULD be sticky/fixed (stays at top on scroll)</li>
+                <li><span class="status pass">TEST 8</span> Back-to-top button should NOT be visible</li>
+                <li><span class="status pass">TEST 9</span> Header should have blur effect and shadow</li>
+                <li><span class="status pass">TEST 10</span> Clicking BYC logo should scroll to hero section</li>
+            </ul>
+        </div>
+        
+        <div class="test-section">
+            <h3>Expected Benefits (from requirements):</h3>
+            <ul>
+                <li>✅ <strong>Better UX:</strong> Doesn't block content (CV examples or pricing text)</li>
+                <li>✅ <strong>Professional Feel:</strong> Feels like a high-end app rather than basic website</li>
+                <li>✅ <strong>Modern Solution:</strong> Solves "I'm lost at bottom of page" without cluttering screen</li>
+            </ul>
+        </div>
+        
+        <div class="test-section">
+            <h3>Technical Implementation Details:</h3>
+            <ul>
+                <li>📏 <strong>Trigger:</strong> 300px scroll (was 400px)</li>
+                <li>🎯 <strong>Position:</strong> bottom: 20px, right: 20px (was 30px)</li>
+                <li>🎨 <strong>Colors:</strong> Navy Blue background (#8b5cf6), Gold arrow (#fbbf24)</li>
+                <li>⚡ <strong>Behavior:</strong> window.scrollTo({top: 0, behavior: 'smooth'})</li>
+                <li>🔝 <strong>Z-index:</strong> 10000 (very high to stay above all content)</li>
+                <li>📱 <strong>Mobile-only:</strong> Only appears on screens ≤ 768px</li>
+            </ul>
+        </div>
+        
+        <div class="test-section">
+            <h3>Test Content for Scrolling</h3>
+            <p>Scroll down to test the back-to-top button functionality...</p>
+            <div style="height: 1500px; background: linear-gradient(to bottom, #f8f9fa, #e9ecef); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #666;">
+                <div style="text-align: center;">
+                    <p>⬇️ Scroll down 300px to see back-to-top button appear (mobile only)</p>
+                    <p>⬆️ Scroll back up to see it disappear</p>
+                    <p>📱 Resize browser to mobile width to test</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
