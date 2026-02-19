@@ -42,3 +42,8 @@ memory/2026-02-11.md
 # OS files
 .DS_Store
 Thumbs.db
+
+# Environment variables
+.env
+.env.*
+!.env.example
