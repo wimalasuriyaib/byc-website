@@ -1,0 +1,94 @@
+{
+  "playbookArticles": [
+    {
+      "id": 1,
+      "number": "#1",
+      "headline": "How to answer \"What is your greatest weakness?\" without sounding fake.",
+      "title": "The \"Weakness\" Trap",
+      "readTime": "2-min read",
+      "content": "The Mistake: Most candidates give a \"fake\" weakness like \"I'm a perfectionist\" or \"I work too hard.\" Interviewers hate this because it shows a lack of self-awareness and honesty.\n\nThe BYC Strategy: The \"Awareness + Action\" Formula. A real executive doesn't pretend to be perfect; they show they can manage their flaws. Your answer should have three parts:\n\n1. A Real (But Non-Fatal) Weakness: Pick something manageable.\n2. The Impact: How it used to affect your work.\n3. The Solution: The tool or habit you use to fix it.\n\nThe \"Winning\" Example: \"Earlier in my career, I struggled with delegation. I felt that if I didn't do it myself, the quality would drop. However, I realized this was slowing down the team's output. To fix this, I started using Jira to track tasks and implemented 10-minute daily check-ins. Now, I focus on empowering my team while maintaining oversight, which has increased our efficiency by 20%.\"\n\nWhy this works: It shows honesty, it shows you use data/tools to solve problems, and it shows you care about the team.",
+      "tags": ["weakness", "self-awareness", "honesty", "delegation"]
+    },
+    {
+      "id": 2,
+      "number": "#2",
+      "headline": "How to master your first 90 seconds without rambling.",
+      "title": "The \"Tell Me About Yourself\" Pitch",
+      "readTime": "2-min read",
+      "content": "The Mistake: Candidates often start from their birth or university and list every job they've ever had. By the time they get to the relevant part, the interviewer is bored.\n\nThe BYC Strategy: The \"Past-Present-Future\" Model. You are not telling a life story; you are telling a \"success story\" tailored to this specific job.\n\nThe \"Winning\" Example: \"I have spent the last 8 years in Operations, specifically focusing on supply chain efficiency (Past). Currently, I lead a team of 10 where we recently cut overhead costs by 15% using AI-driven inventory tracking (Present). I've followed your company's expansion into the South Asian market, and I'm here because I want to apply my scaling expertise to help you hit your 2026 targets (Future).\"\n\nWhy this works: It is concise, results-oriented, and tells the interviewer exactly why you are there.",
+      "tags": ["introduction", "pitch", "storytelling", "concise"]
+    },
+    {
+      "id": 3,
+      "number": "#3",
+      "headline": "How to answer \"Tell me about a time when...\" with precision.",
+      "title": "The STAR Method",
+      "readTime": "2-min read",
+      "content": "The Mistake: Giving vague answers like \"I usually handle conflict well by talking to people.\" Interviewers need proof, not promises.\n\nThe BYC Strategy: The STAR Framework (Situation, Task, Action, Result).\n\n- S/T: Set the scene in 2 sentences.\n- A: Describe the 3 specific steps you took.\n- R: Share the hard data or positive outcome.\n\nThe \"Winning\" Example: \"We had a major client threatening to leave because of a delivery delay (S/T). I personally analyzed the bottleneck, rerouted the logistics via a secondary vendor, and negotiated a discount for the client's next order (Action). As a result, we retained the client, and they signed a 2-year contract extension worth $50k (Result).\"\n\nWhy this works: It provides a logical flow and proves your value through tangible results.",
+      "tags": ["STAR", "examples", "results", "framework"]
+    },
+    {
+      "id": 4,
+      "number": "#4",
+      "headline": "How to prove you aren't just \"Job Hunting.\"",
+      "title": "The \"Why Us?\" Question",
+      "readTime": "2-min read",
+      "content": "The Mistake: Giving generic praise like \"You are a market leader and a great company.\" This shows you haven't done your homework.\n\nThe BYC Strategy: The \"Deep-Link\" Method. Find one specific project, value, or news item about the company and link it to your personal career mission.\n\nThe \"Winning\" Example: \"I read your CEO's recent interview about moving toward carbon-neutral manufacturing by 2030. In my previous role, I led a 'Zero-Waste' initiative that reduced plastic usage by 30%. I want to work here because my personal passion for sustainability matches your corporate roadmap.\"\n\nWhy this works: It shows you are an \"Insider\" who has researched the company and shares their vision.",
+      "tags": ["research", "company", "alignment", "values"]
+    },
+    {
+      "id": 5,
+      "number": "#5",
+      "headline": "How to own your timeline without apologizing.",
+      "title": "Handling a Career Gap",
+      "readTime": "2-min read",
+      "content": "The Mistake: Being vague or acting embarrassed about a gap. This makes interviewers suspect you are hiding something.\n\nThe BYC Strategy: The \"Intentional Growth\" Pivot. Frame the gap as a period of active choice and preparation for your next move.\n\nThe \"Winning\" Example: \"I intentionally took a 6-month career break to handle family commitments and complete an advanced certification in Data Analytics. This time allowed me to sharpen my technical skills, and I am returning to the workforce with a fresh perspective and a more specialized skill set.\"\n\nWhy this works: It turns a \"passive\" gap into an \"active\" period of professional development.",
+      "tags": ["career gap", "explanation", "growth", "intentional"]
+    },
+    {
+      "id": 6,
+      "number": "#6",
+      "headline": "How to talk about money without losing the offer.",
+      "title": "Salary Negotiation",
+      "readTime": "2-min read",
+      "content": "The Mistake: Giving a single, fixed number too early. If it's too high, you're out; if it's too low, you lose money.\n\nThe BYC Strategy: The \"Market-Value Range.\" Always base your number on industry data, not your personal bills.\n\nThe \"Winning\" Example: \"Based on the responsibilities we've discussed and the current market rate for Senior Managers in Colombo, I'm looking for a total package in the range of [X] to [Y]. However, the role itself is my priority, and I'm open to discussing the full benefits package.\"\n\nWhy this works: It shows you are informed but flexible, keeping the conversation professional.",
+      "tags": ["salary", "negotiation", "market value", "compensation"]
+    },
+    {
+      "id": 7,
+      "number": "#7",
+      "headline": "How to show leadership before you're even hired.",
+      "title": "The \"Questions for Us\" Section",
+      "readTime": "2-min read",
+      "content": "The Mistake: Saying \"No, I think you covered everything.\" This signals a lack of curiosity or critical thinking.\n\nThe BYC Strategy: The \"Success-Metric\" Question. Ask questions that show you are already thinking about how to help them win.\n\nThe \"Winning\" Example: \"If we were to meet 6 months from now and I had exceeded your expectations in this role, what specific achievements would have made that happen?\"\n\nWhy this works: It forces the interviewer to visualize you succeeding and tells you exactly how to pass your probation.",
+      "tags": ["questions", "leadership", "success metrics", "probation"]
+    },
+    {
+      "id": 8,
+      "number": "#8",
+      "headline": "Why your CV is being rejected by a robot.",
+      "title": "The ATS Secret",
+      "readTime": "2-min read",
+      "content": "The Mistake: Using complex designs, tables, and images in your CV. Applicant Tracking Systems (ATS) can't read them and will \"auto-reject\" you.\n\nThe BYC Strategy: The \"Clean Keyword\" Format. Use a text-based, single-column layout with headers that match the job description.\n\nThe \"Winning\" Example: Instead of \"Dynamic Leader,\" use the specific keywords in the JD like \"Project Lifecycle Management\" or \"Agile Methodology.\" Ensure your CV is a PDF but remains \"searchable\" (you should be able to highlight and copy the text).\n\nWhy this works: It ensures your CV actually reaches a human being's desk.",
+      "tags": ["ATS", "CV", "resume", "keywords", "formatting"]
+    },
+    {
+      "id": 9,
+      "number": "#9",
+      "headline": "How to look like a Pro on Zoom or Teams.",
+      "title": "Remote Interview Etiquette",
+      "readTime": "2-min read",
+      "content": "The Mistake: Looking down at the screen, having a messy background, or bad lighting. This makes you look \"Junior\" regardless of your experience.\n\nThe BYC Strategy: The \"Eye-Level\" Setup. Your camera should be at eye level so you are \"meeting\" them as an equal.\n\nThe \"Winning\" Checklist:\n1. Eye Contact: Look at the camera hole, not the person's face on the screen.\n2. Lighting: Face a window. Never have a light behind you.\n3. Audio: Use a wired headset. Bluetooth failing mid-interview is a red flag for \"technical unreadiness.\"\n\nWhy this works: It removes distractions and lets the interviewer focus entirely on your answers.",
+      "tags": ["remote", "zoom", "teams", "etiquette", "setup"]
+    },
+    {
+      "id": 10,
+      "number": "#10",
+      "headline": "How to turn a \"No\" into a future opportunity.",
+      "title": "Handling Rejection",
+      "readTime": "2-min read",
+      "content": "The Mistake: Ghosting the recruiter or sending an angry reply. This burns a bridge you might need later.\n\nThe BYC Strategy: The \"Graceful Follow-Up.\" Send a note that leaves the door wide open.\n\nThe \"Winning\" Example: \"Thank you for the update. While I'm disappointed, I truly enjoyed learning about the team. If you have a moment, I'd love one piece of feedback on where I can strengthen my profile for future openings at [Company]. I'll keep following your progress!\"\n\nWhy this works: It makes you the first person they call if their first-choice candidate quits or a new role opens up.",
+      "tags": ["rejection", "follow-up", "feedback", "networking"]
+    }
+  ]
+}

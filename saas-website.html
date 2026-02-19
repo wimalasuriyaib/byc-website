@@ -96,6 +96,11 @@
             line-height: 1.6;
             transition: background-color 0.3s, color 0.3s;
             -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+            scroll-padding-top: 80px; /* Prevent content from hiding behind sticky header */
+        }
+        
+        html {
+            scroll-padding-top: 80px; /* For better browser support */
         }
         
         /* Better touch targets for iOS */
@@ -117,10 +122,27 @@
         
         /* Header */
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
             padding: 20px 0;
             border-bottom: 1px solid var(--border-color);
-            background-color: var(--bg);
+            background-color: rgba(var(--bg-rgb), 0.9);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s, border-color 0.3s;
+        }
+        
+        /* Add RGB values for backdrop filter compatibility */
+        body.dark-mode {
+            --bg-rgb: 10, 15, 26; /* Dark navy */
+        }
+        
+        body.light-mode {
+            --bg-rgb: 255, 255, 255; /* White */
         }
         
         .nav {
@@ -416,8 +438,61 @@
             color: var(--primary);
         }
         
+        /* Back to Top Button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: var(--primary); /* Navy Blue */
+            color: #fbbf24; /* Gold color for arrow */
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000; /* Very high z-index to stay above all content */
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .back-to-top.visible {
+            display: flex;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .back-to-top:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: var(--primary-dark); /* Slightly darker navy on hover */
+        }
+        
+        /* Active state for touch devices */
+        .back-to-top:active {
+            transform: scale(0.95);
+        }
+        
         /* Responsive - iOS/Mobile Fixes */
         @media (max-width: 768px) {
+            /* Remove sticky header on mobile */
+            header {
+                position: static;
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                box-shadow: none;
+            }
+            
+            /* Adjust scroll padding since header is not fixed */
+            body, html {
+                scroll-padding-top: 0;
+            }
+            
             /* iOS Safari viewport fixes */
             html {
                 -webkit-text-size-adjust: 100%;
@@ -721,6 +796,274 @@
                 padding-right: 10px !important;
             }
         }
+
+        /* Playbook Hub Styles */
+        .playbook-card {
+            background: var(--dark-card);
+            border-radius: 15px;
+            padding: 25px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid var(--border-color);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .playbook-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-color: var(--primary);
+        }
+
+        .playbook-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .playbook-card-number {
+            background: var(--primary);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .playbook-card-badge {
+            background: var(--accent);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .playbook-card-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+
+        .playbook-card-headline {
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .playbook-card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+        }
+
+        .playbook-card-read-btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .playbook-card-read-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        .playbook-card-share {
+            background: none;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 18px;
+            padding: 5px;
+            transition: color 0.3s;
+        }
+
+        .playbook-card-share:hover {
+            color: var(--primary);
+        }
+
+        /* Modal Styles */
+        #article-modal h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: var(--text);
+        }
+
+        #article-modal h3 {
+            font-size: 20px;
+            margin: 30px 0 15px;
+            color: var(--text);
+        }
+
+        #article-modal p {
+            margin-bottom: 15px;
+            line-height: 1.7;
+            color: var(--text-secondary);
+        }
+
+        #article-modal ul, #article-modal ol {
+            margin-bottom: 20px;
+            padding-left: 20px;
+        }
+
+        #article-modal li {
+            margin-bottom: 10px;
+            line-height: 1.6;
+            color: var(--text-secondary);
+        }
+
+        /* Responsive Grid */
+        @media (max-width: 1024px) {
+            .playbook-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .playbook-grid {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .playbook-card {
+                padding: 20px;
+            }
+            
+            .playbook-card-title {
+                font-size: 18px;
+            }
+            
+            /* Mobile Modal Improvements */
+            #article-modal > div {
+                margin: 20px auto !important;
+                padding: 20px !important;
+                border-radius: 15px !important;
+                max-height: 90vh !important;
+                overflow-y: auto !important;
+            }
+            
+            #article-modal h2 {
+                font-size: 24px !important;
+            }
+            
+            #article-modal h3 {
+                font-size: 18px !important;
+                margin: 20px 0 10px !important;
+            }
+            
+            #close-modal {
+                top: 10px !important;
+                right: 10px !important;
+                font-size: 28px !important;
+            }
+        }
+
+        /* Search Results */
+        .search-result-item {
+            padding: 10px;
+            border-bottom: 1px solid var(--border-color);
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search-result-item:hover {
+            background-color: rgba(139, 92, 246, 0.1);
+        }
+
+        .search-result-title {
+            font-weight: 600;
+            color: var(--text);
+            margin-bottom: 5px;
+        }
+
+        .search-result-headline {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* About Us Section Styles */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .about-image img {
+            transition: transform 0.3s ease;
+        }
+
+        .about-image img:hover {
+            transform: translateY(-5px);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-text {
+            line-height: 1.7;
+        }
+
+        .about-features {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            margin: 25px 0;
+        }
+
+        .about-feature {
+            display: flex;
+            align-items: flex-start;
+            padding: 20px;
+            background: rgba(139, 92, 246, 0.05);
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .about-feature:hover {
+            transform: translateX(5px);
+            background: rgba(139, 92, 246, 0.1);
+        }
+
+        /* Responsive Design for About Section */
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .about-image {
+                order: 2;
+            }
+            
+            .about-content {
+                order: 1;
+            }
+            
+            .about-feature {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .about-feature .feature-icon {
+                margin-right: 0;
+                margin-bottom: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -728,7 +1071,7 @@
     <header>
         <div class="container">
             <nav class="nav">
-                <a href="#" class="logo">BYC<span style="color: var(--accent)"> | Build Your Career</span></a>
+                <a href="#home" class="logo">BYC<span style="color: var(--accent)"> | Build Your Career</span></a>
                 <div class="nav-buttons">
                     <button id="theme-toggle" class="theme-toggle">
                         <span id="theme-icon">🌙</span> Dark/Light
@@ -738,9 +1081,10 @@
                 <div class="nav-links">
                     <a href="#why">Why BYC?</a>
                     <a href="#services">Services</a>
+                    <a href="#playbook">The Playbook</a>
                     <a href="#pricing">Pricing</a>
                     <a href="#faq">FAQ</a>
-                    <a href="#about">About</a>
+                    <a href="#about">About Us</a>
                     <a href="#contact">Contact</a>
                 </div>
             </nav>
@@ -748,15 +1092,20 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" id="home">
         <div class="container">
             <div style="text-transform: uppercase; letter-spacing: 2px; font-size: 14px; color: var(--accent); margin-bottom: 10px; font-weight: 600;">BUILD YOUR CAREER</div>
             <h1>Stop Guessing. Start Performing.</h1>
             <p>Executive-grade career coaching for ambitious professionals. Master the interview strategies and CV standards used by industry leaders to land your dream role.</p>
-            <img src="https://raw.githubusercontent.com/wimalasuriyaib/byc-website/refs/heads/master/images/HeroImage2.png" alt="BYC.lk - Build Your Career - Professional Career Coaching Sri Lanka" class="hero-img" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin: 20px 0;">
+            <img src="images/HeroImage2.png" alt="BYC.lk - Build Your Career - Professional Career Coaching Sri Lanka" class="hero-img" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin: 20px 0;">
             <div class="hero-buttons">
                 <a href="#pricing" class="cta-button">Book Your Session</a>
-                <a href="#why" class="secondary-button">Why 90% Fail?</a>
+                <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                    <a href="#playbook" class="secondary-button" style="background: var(--dark-card); border: 1px solid var(--primary);">
+                        📚 View Free Playbook
+                    </a>
+                    <a href="#why" class="secondary-button">Why 90% Fail?</a>
+                </div>
             </div>
         </div>
     </section>
@@ -770,19 +1119,19 @@
                     <div class="feature-icon">🎯</div>
                     <h3>Career Calibration Gap</h3>
                     <p>Most candidates don't know how to position themselves for their target roles. We help you align your skills with market demands.</p>
-                    <img src="https://raw.githubusercontent.com/wimalasuriyaib/byc-website/refs/heads/master/images/Career%20Calibration%20Gap.png" alt="Career Calibration Gap - BYC.lk Career Coaching" class="service-img" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-top: 15px;">
+                    <img src="images/Career Calibration Gap.png" alt="Career Calibration Gap - BYC.lk Career Coaching" class="service-img" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-top: 15px;">
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">📝</div>
                     <h3>CV Re-engineering</h3>
                     <p>Your CV gets 7 seconds of attention. We transform it into an achievement-focused document that stands out to recruiters.</p>
-                    <img src="https://raw.githubusercontent.com/wimalasuriyaib/byc-website/refs/heads/master/images/CV%20Re-engineering.png" alt="CV Re-engineering - BYC.lk Career Coaching" class="service-img" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-top: 15px;">
+                    <img src="images/CV Re-engineering.png" alt="CV Re-engineering - BYC.lk Career Coaching" class="service-img" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-top: 15px;">
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">🎤</div>
                     <h3>Mock Interview Mastery</h3>
                     <p>Practice with real interview scenarios and get feedback from industry experts. Build confidence and nail your interviews.</p>
-                    <img src="https://raw.githubusercontent.com/wimalasuriyaib/byc-website/refs/heads/master/images/Mock%20Interview%20Mastery.png" alt="Mock Interview Mastery - BYC.lk Career Coaching" class="service-img" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-top: 15px;">
+                    <img src="images/Mock Interview Mastery.png" alt="Mock Interview Mastery - BYC.lk Career Coaching" class="service-img" style="width: 100%; height: 180px; object-fit: cover; border-radius: 8px; margin-top: 15px;">
                 </div>
             </div>
         </div>
@@ -856,19 +1205,19 @@
                     <div class="feature-icon">🎤</div>
                     <h3>Mock Interviews</h3>
                     <p>Practice with real interview scenarios tailored to your target industry. Get feedback on communication, body language, and technical responses.</p>
-                    <img src="https://raw.githubusercontent.com/wimalasuriyaib/byc-website/refs/heads/master/images/Service_Mock%20Interviews1.png" alt="Mock Interviews - BYC.lk Premium Service" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-top: 15px;">
+                    <img src="images/Service_Mock Interviews1.png" alt="Mock Interviews - BYC.lk Premium Service" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-top: 15px;">
                 </div>
                 <div class="feature-card" style="border-color: var(--accent);">
                     <div class="feature-icon">📄</div>
                     <h3>CV Re-engineering</h3>
                     <p>Transform your CV from a duty list to an achievement showcase. We highlight your impact using ATS-friendly formats that get noticed.</p>
-                    <img src="https://raw.githubusercontent.com/wimalasuriyaib/byc-website/refs/heads/master/images/service_CV%20Re-engineering.png" alt="CV Re-engineering - BYC.lk Premium Service" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-top: 15px;">
+                    <img src="images/service_CV Re-engineering.png" alt="CV Re-engineering - BYC.lk Premium Service" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-top: 15px;">
                 </div>
                 <div class="feature-card" style="border-color: #f59e0b;">
                     <div class="feature-icon">🧭</div>
                     <h3>Career Calibration</h3>
                     <p>Align your skills with market opportunities. We help you identify growth paths, skill gaps, and strategic moves for career advancement.</p>
-                    <img src="https://raw.githubusercontent.com/wimalasuriyaib/byc-website/refs/heads/master/images/service_Career%20Calibration.png" alt="Career Calibration - BYC.lk Premium Service" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-top: 15px;">
+                    <img src="images/service_Career Calibration.png" alt="Career Calibration - BYC.lk Premium Service" style="width: 100%; height: 120px; object-fit: cover; border-radius: 8px; margin-top: 15px;">
                 </div>
             </div>
         </div>
@@ -994,32 +1343,163 @@
         </div>
     </section>
 
+    <!-- The BYC Playbook Hub -->
+    <section class="playbook" id="playbook" style="padding: 100px 0; background: var(--card);">
+        <div class="container">
+            <h2 class="section-title">The BYC Playbook</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--text-secondary);">
+                Professional interview advice stored in a scalable, searchable hub. Click any card to read the full article.
+            </p>
+
+            <!-- Search Bar -->
+            <div class="playbook-search" style="max-width: 600px; margin: 0 auto 50px;">
+                <input type="text" id="playbook-search" placeholder="Search for a question (e.g., Salary, Weakness, STAR)..." 
+                       style="width: 100%; padding: 15px 20px; border: 2px solid var(--border-color); border-radius: 10px; 
+                              background: var(--dark-card); color: var(--text); font-size: 16px; transition: border-color 0.3s;">
+                <div id="search-results" style="display: none; margin-top: 10px; padding: 15px; background: var(--dark-card); 
+                                                border-radius: 10px; border: 1px solid var(--border-color);"></div>
+            </div>
+
+            <!-- Playbook Cards Grid -->
+            <div class="playbook-grid" id="playbook-grid" 
+                 style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-bottom: 60px;">
+                <!-- Cards will be dynamically loaded here -->
+            </div>
+
+            <!-- Load More Button (for lazy loading) -->
+            <div style="text-align: center;">
+                <button id="load-more" style="display: none; padding: 12px 30px; background: var(--primary); color: white; 
+                                              border: none; border-radius: 8px; font-size: 16px; cursor: pointer; 
+                                              transition: background-color 0.3s;">
+                    Load More Articles
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Article Modal -->
+    <div id="article-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; 
+                                   background: rgba(0, 0, 0, 0.8); z-index: 10001; overflow-y: auto;">
+        <div style="position: relative; max-width: 800px; margin: 50px auto; background: var(--dark-card); 
+                    border-radius: 20px; padding: 40px; color: var(--text);">
+            <button id="close-modal" style="position: absolute; top: 20px; right: 20px; background: none; 
+                                            border: none; color: var(--text); font-size: 24px; cursor: pointer;">×</button>
+            
+            <div id="modal-content">
+                <!-- Article content will be loaded here -->
+            </div>
+
+            <!-- Sticky CTA Button -->
+            <div style="position: sticky; bottom: 0; background: var(--dark-card); padding: 20px 0; margin-top: 40px; 
+                        border-top: 1px solid var(--border-color); text-align: center;">
+                <a href="#pricing" class="btn" style="display: inline-block; padding: 15px 30px; background: var(--primary); 
+                                                      color: white; text-decoration: none; border-radius: 8px; font-weight: 600;">
+                    Master this in a Mock Session
+                </a>
+            </div>
+        </div>
+    </div>
+
     <!-- CTA -->
     <!-- The BYC Council -->
     <section class="features" id="council" style="background: var(--dark-card);">
         <div class="container">
-            <h2 class="section-title">The BYC Council</h2>
+            <h2 class="section-title">The BYC Experts</h2>
             <p style="text-align: center; max-width: 800px; margin: 0 auto 40px; color: var(--text-secondary);">
-                Our team of industry experts brings decades of experience from top-tier firms to guide your career journey.
+                Our team is composed of industry veterans who establish the performance standards required to enter top-tier firms.
             </p>
             <div class="features-grid">
                 <div class="feature-card" style="border-color: var(--primary);">
-                    <div class="feature-icon" style="font-size: 48px; margin-bottom: 15px;">👨‍💼</div>
-                    <h3>Senior Tech Director</h3>
-                    <p>15+ years experience in technology leadership. Has hired 100+ engineers across FAANG and Fortune 500 companies.</p>
+                    <div class="feature-icon" style="font-size: 48px; margin-bottom: 15px;">👨‍💻</div>
+                    <h3 style="font-weight: bold;">Senior Technology Leaders</h3>
+                    <p>A collective of directors with 15+ years of experience in global tech leadership. They define the technical calibration standards used to stress-test your readiness.</p>
                     <!-- Image removed per request -->
                 </div>
                 <div class="feature-card" style="border-color: var(--accent);">
-                    <div class="feature-icon" style="font-size: 48px; margin-bottom: 15px;">👩‍💼</div>
-                    <h3>Lead Talent Acquisition</h3>
-                    <p>Specializes in executive recruitment and talent strategy. Knows exactly what hiring managers look for in top candidates.</p>
+                    <div class="feature-icon" style="font-size: 48px; margin-bottom: 15px;">📊</div>
+                    <h3 style="font-weight: bold;">Senior Project & Operations Managers</h3>
+                    <p>Experts in strategic execution and corporate delivery. This group ensures your career roadmap is aligned with the demands of high-impact leadership roles.</p>
                     <!-- Image removed per request -->
                 </div>
                 <div class="feature-card" style="border-color: #f59e0b;">
-                    <div class="feature-icon" style="font-size: 48px; margin-bottom: 15px;">🧭</div>
-                    <h3>Career Consultant</h3>
-                    <p>Career transition specialist with expertise in helping professionals navigate complex career decisions and growth paths.</p>
+                    <div class="feature-icon" style="font-size: 48px; margin-bottom: 15px;">🤝</div>
+                    <h3 style="font-weight: bold;">Senior Talent Architects</h3>
+                    <p>A panel of executive recruiters and hiring strategists who provide the "Insider Framework" required to get your profile noticed by elite firms.</p>
                     <!-- Image removed per request -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-section" id="about" style="padding: 80px 0; background: var(--dark-bg);">
+        <div class="container">
+            <div class="about-grid">
+                <!-- Left Column: Image -->
+                <div class="about-image">
+                    <img src="images/Ready to Build Your Career.png" alt="BYC Career Pathway - Modern professional success" style="width: 100%; height: auto; border-radius: 16px; box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);">
+                </div>
+                
+                <!-- Right Column: Content -->
+                <div class="about-content">
+                    <h2 class="section-title" style="margin-bottom: 20px;">The BYC Story</h2>
+                    <p style="color: #fbbf24; font-size: 18px; font-weight: 600; margin-bottom: 30px; line-height: 1.4;">
+                        Bridging the Gap Between "Qualified" and "Selected."
+                    </p>
+                    
+                    <div class="about-text">
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">The Reality</h3>
+                        <p style="margin-bottom: 25px; line-height: 1.6;">
+                            In today's competitive market, being "qualified" is simply the baseline. It gets you into the room, but it doesn't get you the seat. Most high-performing professionals fail to land their dream roles not because they lack technical ability, but because they haven't mastered the Art of Professional Calibration. They have the experience, but their CV doesn't "open the door," and their interview style doesn't "close the deal."
+                        </p>
+                        
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">Who We Are</h3>
+                        <p style="margin-bottom: 25px; line-height: 1.6;">
+                            BYC (Build Your Career) was founded by a collective of industry veterans—Senior Technology Leaders, Operations Directors, and Talent Architects—who have sat on the other side of the table for over 15 years. We have reviewed thousands of CVs and interviewed hundreds of candidates for top-tier global firms. We know exactly what makes a hiring manager say "Yes," and more importantly, we know the silent mistakes that lead to a "No."
+                        </p>
+                        
+                        <h3 style="color: var(--primary); margin-bottom: 15px;">Our Philosophy</h3>
+                        <p style="margin-bottom: 25px; line-height: 1.6;">
+                            We didn't build BYC to be another generic CV-writing service. We built it to be a Career Accelerator. Our mission is to take ambitious professionals and "re-package" their professional narrative. We provide the insider framework used by elite performers to:
+                        </p>
+                        
+                        <div class="about-features">
+                            <div class="about-feature">
+                                <div class="feature-icon" style="font-size: 24px; margin-right: 15px;">🔑</div>
+                                <div>
+                                    <h4 style="margin-bottom: 5px; color: var(--text);">Open Doors</h4>
+                                    <p style="margin: 0; color: var(--text-secondary); line-height: 1.5;">
+                                        Transform your CV from a list of duties into a high-impact document that beats the ATS and grabs a recruiter's attention in 7 seconds.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="about-feature">
+                                <div class="feature-icon" style="font-size: 24px; margin-right: 15px;">🛡️</div>
+                                <div>
+                                    <h4 style="margin-bottom: 5px; color: var(--text);">Face Opportunities with Confidence</h4>
+                                    <p style="margin: 0; color: var(--text-secondary); line-height: 1.5;">
+                                        Master the high-pressure environment of executive interviews through realistic simulation and raw, honest feedback.
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="about-feature">
+                                <div class="feature-icon" style="font-size: 24px; margin-right: 15px;">🚀</div>
+                                <div>
+                                    <h4 style="margin-bottom: 5px; color: var(--text);">Accelerate Your Timeline</h4>
+                                    <p style="margin: 0; color: var(--text-secondary); line-height: 1.5;">
+                                        Stop guessing your growth path. We help you navigate your career with a strategic roadmap designed for rapid upward mobility.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3 style="color: var(--primary); margin-top: 30px; margin-bottom: 15px;">The BYC Edge</h3>
+                        <p style="line-height: 1.6;">
+                            We don't teach theory from a textbook. We share the performance standards of the boardroom. When you work with the BYC Council, you aren't just getting a coach; you are getting a panel of experts who have "seen it and done it."
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1029,7 +1509,7 @@
         <div class="container">
             <h2>Ready to Build Your Career?</h2>
             <p>Join ambitious professionals who transformed their careers with BYC.lk. Your dream job is one session away.</p>
-            <img src="https://raw.githubusercontent.com/wimalasuriyaib/byc-website/refs/heads/master/images/Ready%20to%20Build%20Your%20Career.png" alt="Ready to Build Your Career - BYC.lk Career Coaching" style="width: 100%; height: 150px; object-fit: cover; border-radius: 12px; margin: 20px 0;">
+            <img src="images/Ready to Build Your Career.png" alt="Ready to Build Your Career - BYC.lk Career Coaching" style="width: 100%; height: 150px; object-fit: cover; border-radius: 12px; margin: 20px 0;">
             <a href="https://wa.me/94719359004?text=Hi%20BYC.lk!%20I%20want%20to%20book%20a%20career%20consultation." class="cta-button" style="padding: 15px 40px; font-size: 18px;" target="_blank">📱 WhatsApp Us Now</a>
         </div>
     </section>
@@ -1037,13 +1517,15 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <a href="#" class="logo">BYC<span style="color: var(--accent)"> | Build Your Career</span></a>
+            <a href="#home" class="logo">BYC<span style="color: var(--accent)"> | Build Your Career</span></a>
             <div class="footer-links">
                 <a href="#why">Why BYC?</a>
                 <a href="#services">Services</a>
+                <a href="#playbook">The Playbook</a>
                 <a href="#pricing">Pricing</a>
-                <a href="#about">About</a>
+                <a href="#about">About Us</a>
                 <a href="#contact">Contact</a>
+                <a href="#faq">FAQ</a>
             </div>
             <p style="color: var(--accent); margin-top: 20px;">
                 📱 WhatsApp: <a href="https://wa.me/94719359004" style="color: var(--accent); text-decoration: underline;">+94 71 935 9004</a>
@@ -1136,6 +1618,259 @@
                 question.addEventListener('touchend', function(e) {
                     this.style.backgroundColor = 'transparent';
                 });
+            });
+            
+            // Back to Top Button functionality
+            const backToTopButton = document.createElement('button');
+            backToTopButton.className = 'back-to-top';
+            backToTopButton.innerHTML = '↑';
+            backToTopButton.setAttribute('aria-label', 'Back to top');
+            document.body.appendChild(backToTopButton);
+            
+            // Show/hide button based on scroll position - trigger at 300px
+            window.addEventListener('scroll', function() {
+                if (window.innerWidth <= 768 && window.scrollY > 300) {
+                    backToTopButton.classList.add('visible');
+                } else {
+                    backToTopButton.classList.remove('visible');
+                }
+            });
+            
+            // Scroll to top when clicked - smooth behavior
+            backToTopButton.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Initial check
+            if (window.innerWidth <= 768 && window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            }
+        });
+
+        // BYC Playbook Hub Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const playbookGrid = document.getElementById('playbook-grid');
+            const searchInput = document.getElementById('playbook-search');
+            const searchResults = document.getElementById('search-results');
+            const loadMoreBtn = document.getElementById('load-more');
+            const articleModal = document.getElementById('article-modal');
+            const modalContent = document.getElementById('modal-content');
+            const closeModal = document.getElementById('close-modal');
+            
+            let allArticles = [];
+            let displayedArticles = 6; // Initial number of articles to show
+            const articlesPerLoad = 3; // Articles to load each time
+
+            // Load playbook data from JSON file
+            fetch('playbook-data.json')
+                .then(response => response.json())
+                .then(data => {
+                    allArticles = data.playbookArticles;
+                    renderArticles();
+                    setupSearch();
+                    setupLoadMore();
+                })
+                .catch(error => {
+                    console.error('Error loading playbook data:', error);
+                    playbookGrid.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--text-secondary);">Error loading playbook articles. Please try again later.</div>';
+                });
+
+            // Render articles to the grid
+            function renderArticles(filteredArticles = null) {
+                const articlesToRender = filteredArticles || allArticles.slice(0, displayedArticles);
+                playbookGrid.innerHTML = '';
+
+                if (articlesToRender.length === 0) {
+                    playbookGrid.innerHTML = '<div style="text-align: center; padding: 40px; color: var(--text-secondary);">No articles found matching your search.</div>';
+                    loadMoreBtn.style.display = 'none';
+                    return;
+                }
+
+                articlesToRender.forEach(article => {
+                    const card = document.createElement('div');
+                    card.className = 'playbook-card';
+                    card.setAttribute('data-id', article.id);
+                    card.id = `playbook-${article.id}`;
+                    card.setAttribute('aria-label', article.headline);
+                    
+                    card.innerHTML = `
+                        <div class="playbook-card-header">
+                            <span class="playbook-card-number">${article.number}</span>
+                            <span class="playbook-card-badge">${article.readTime}</span>
+                        </div>
+                        <h3 class="playbook-card-title">${article.title}</h3>
+                        <p class="playbook-card-headline">${article.headline}</p>
+                        <div class="playbook-card-footer">
+                            <button class="playbook-card-read-btn" aria-label="Read article: ${article.title}">Read More</button>
+                            <button class="playbook-card-share" title="Copy link to share" aria-label="Share article: ${article.title}">
+                                📋
+                            </button>
+                        </div>
+                    `;
+
+                    // Add click event for reading article
+                    const readBtn = card.querySelector('.playbook-card-read-btn');
+                    readBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        openArticleModal(article);
+                    });
+
+                    // Add click event for card (opens modal)
+                    card.addEventListener('click', () => {
+                        openArticleModal(article);
+                    });
+
+                    // Add click event for share button
+                    const shareBtn = card.querySelector('.playbook-card-share');
+                    shareBtn.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        copyArticleLink(article);
+                    });
+
+                    playbookGrid.appendChild(card);
+                });
+
+                // Show/hide load more button
+                if (filteredArticles) {
+                    loadMoreBtn.style.display = 'none';
+                } else {
+                    loadMoreBtn.style.display = displayedArticles < allArticles.length ? 'block' : 'none';
+                }
+            }
+
+            // Open article in modal
+            function openArticleModal(article) {
+                modalContent.innerHTML = `
+                    <h2>${article.title}</h2>
+                    <div style="display: flex; gap: 15px; margin-bottom: 30px; color: var(--text-secondary);">
+                        <span style="background: var(--primary); color: white; padding: 5px 12px; border-radius: 20px;">${article.number}</span>
+                        <span style="background: var(--accent); color: white; padding: 5px 12px; border-radius: 20px;">${article.readTime}</span>
+                    </div>
+                    <h3>${article.headline}</h3>
+                    <div style="white-space: pre-line; line-height: 1.7; margin-top: 20px;">
+                        ${article.content}
+                    </div>
+                `;
+                articleModal.style.display = 'block';
+                document.body.style.overflow = 'hidden';
+            }
+
+            // Copy article link to clipboard
+            function copyArticleLink(article) {
+                const url = `${window.location.origin}${window.location.pathname}#playbook-${article.id}`;
+                navigator.clipboard.writeText(url).then(() => {
+                    // Show temporary feedback
+                    const shareBtn = event.target.closest('.playbook-card-share');
+                    const originalHTML = shareBtn.innerHTML;
+                    shareBtn.innerHTML = '✅';
+                    shareBtn.style.color = 'var(--success)';
+                    
+                    setTimeout(() => {
+                        shareBtn.innerHTML = originalHTML;
+                        shareBtn.style.color = '';
+                    }, 2000);
+                }).catch(err => {
+                    console.error('Failed to copy link:', err);
+                });
+            }
+
+            // Setup search functionality
+            function setupSearch() {
+                searchInput.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase().trim();
+                    
+                    if (searchTerm.length === 0) {
+                        searchResults.style.display = 'none';
+                        renderArticles();
+                        return;
+                    }
+
+                    // Filter articles by title, headline, tags, or content
+                    const filteredArticles = allArticles.filter(article => {
+                        const searchableText = `
+                            ${article.title.toLowerCase()}
+                            ${article.headline.toLowerCase()}
+                            ${article.tags ? article.tags.join(' ').toLowerCase() : ''}
+                            ${article.content.toLowerCase()}
+                        `;
+                        return searchableText.includes(searchTerm);
+                    });
+
+                    // Show search results dropdown
+                    if (filteredArticles.length > 0) {
+                        searchResults.innerHTML = '';
+                        filteredArticles.forEach(article => {
+                            const resultItem = document.createElement('div');
+                            resultItem.className = 'search-result-item';
+                            resultItem.innerHTML = `
+                                <div class="search-result-title">${article.title}</div>
+                                <div class="search-result-headline">${article.headline}</div>
+                            `;
+                            resultItem.addEventListener('click', () => {
+                                openArticleModal(article);
+                                searchResults.style.display = 'none';
+                                searchInput.value = '';
+                            });
+                            searchResults.appendChild(resultItem);
+                        });
+                        searchResults.style.display = 'block';
+                    } else {
+                        searchResults.innerHTML = '<div style="padding: 10px; color: var(--text-secondary);">No results found</div>';
+                        searchResults.style.display = 'block';
+                    }
+
+                    // Render filtered articles in grid
+                    renderArticles(filteredArticles);
+                });
+
+                // Close search results when clicking outside
+                document.addEventListener('click', function(event) {
+                    if (!searchInput.contains(event.target) && !searchResults.contains(event.target)) {
+                        searchResults.style.display = 'none';
+                    }
+                });
+            }
+
+            // Setup load more functionality
+            function setupLoadMore() {
+                loadMoreBtn.addEventListener('click', function() {
+                    displayedArticles += articlesPerLoad;
+                    renderArticles();
+                    
+                    // Smooth scroll to newly loaded articles
+                    const newCards = playbookGrid.children;
+                    if (newCards.length > 0) {
+                        newCards[newCards.length - articlesPerLoad].scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest'
+                        });
+                    }
+                });
+            }
+
+            // Close modal functionality
+            closeModal.addEventListener('click', function() {
+                articleModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            });
+
+            // Close modal when clicking outside
+            articleModal.addEventListener('click', function(event) {
+                if (event.target === articleModal) {
+                    articleModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+
+            // Close modal with Escape key
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape' && articleModal.style.display === 'block') {
+                    articleModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
             });
         });
     </script>
